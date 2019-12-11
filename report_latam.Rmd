@@ -1,0 +1,30 @@
+---
+title: "national_report"
+author: "Florencia"
+date: "9/12/2019"
+output: html_document
+params: 
+  country: "Argentina"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+file <- read_csv(str_c(params$country, ".csv", sep = ""))
+
+```
+
+
+## Population
+
+
+```{r plot, echo=FALSE}
+
+ggplot(file)+
+  geom_line(aes(x= year , y = pop))+
+  ggtitle(params$country)
+  
+
+```
+
