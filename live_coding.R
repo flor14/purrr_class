@@ -5,17 +5,17 @@ library(tidyverse)
 
 # Steps
   
-# 1. Build a vector of files do you want to iterate over
+# 1. Build a vector of files you want to iterate over
 # 2. Select a function to read the files 
 # 3. Check the number of arguments the function need
 # 4. Select among map()/map2()/pmap()
-# 5. Select map_*() suffix in relation of the desired output
+# 5. Select a map_*() suffix in relation of the desired output
   
 
   
 # Steps
 
-# 1. Build a vector of files do you want to iterate over
+# 1. Build a vector of files you want to iterate over
 
 countries <- list.files(pattern = "\\.csv$")
 
@@ -25,7 +25,7 @@ countries <- list.files(pattern = "\\.csv$")
 
 readr::read_csv(countries[1])
 
-# 5. Select map_*() suffix in relation of the desired output
+# 5. Select a map_*() suffix in relation of the desired output
 
 latam <- purrr::map_df(countries, read_csv)
 
@@ -67,5 +67,4 @@ reports %>%
   purrr::pwalk(rmarkdown::render, "report_latam.Rmd")
 
 
-# remember to improve your plots for communication!
 
